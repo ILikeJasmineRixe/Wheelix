@@ -1,0 +1,28 @@
+{
+  "name": "wheelix",
+  "version": "1.0.0",
+  "description": "A simple Discord bot for showing the current status of your Minecraft Server.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ILikeJasmineRixe/Wheelix.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ILikeJasmineRixe/Wheelix/issues"
+  },
+  "homepage": "https://github.com/ILikeJasmineRixe/Wheelix#readme",
+  "dependencies": {
+    "discord.js": "^14.23.2",
+    "dotenv": "^17.2.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.37.0",
+    "eslint": "^9.37.0"
+  }
+}
