@@ -30,15 +30,23 @@ async function bot() {
     await response;
 
     const result = await response.json();
+    // console.log(result);
     const players = result.players;
 
-    // grab a specific value
-    const currentPlayerCount = ` ${players.online}`;
-    const maxPlayerCount = players.max;
+    const isOnline = result.online ? "🟢" : "🔴";
+
+    let currentPlayerCount = 0;
+    let maxPlayerCount = 0;
+
+    // If the server is online, try reading players
+    if (result.online) {
+      currentPlayerCount = result.players?.online ?? 0;
+      maxPlayerCount = result.players?.max ?? 0;
+    }
+
 
     console.log(url);
 
-    const isOnline = result.online ? "🟢 " : "🔴 ";
 
     console.log(`${isOnline} | ${currentPlayerCount}/${maxPlayerCount} Online`);
 
@@ -81,6 +89,7 @@ async function bot() {
   }
 }
 
+let runI = 0;
 async function main() {
   // Wait for initial login
   await new Promise((resolve) => {
@@ -93,7 +102,11 @@ async function main() {
 
   while (true) {
     await bot();
-    await new Promise((resolve) => setTimeout(resolve, 30000));
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+    runI++;
+    if (runI % 10 === 0) {
+      console.clear();
+    }
   }
 }
 
